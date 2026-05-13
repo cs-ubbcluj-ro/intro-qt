@@ -1,0 +1,29 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v5
+
+      - name: Install latest CMake
+        uses: lukka/get-cmake@latest
+
+      - name: Verify CMake version
+        run: cmake --version
+
+      - name: Configure
+        run: cmake -S . -B target
+
+      - name: Build
+        run: cmake --build target
