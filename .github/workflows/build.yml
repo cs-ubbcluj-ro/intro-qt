@@ -19,6 +19,9 @@ jobs:
       - name: Install latest CMake
         uses: lukka/get-cmake@latest
 
+      - name: Install Qt
+        uses: jurplel/install-qt-action@v4
+
       - name: Verify CMake version
         run: cmake --version
 
